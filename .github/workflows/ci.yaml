@@ -11,7 +11,7 @@ env:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: puzl-ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.9", "3.x"]
@@ -35,7 +35,7 @@ jobs:
           poetry run python -m pytest -v -s
 
       - name: Install extra dependencies
-        run: | 
+        run: |
           poetry install --all-extras
 
       - name: Run tests with extra dependencies
@@ -43,7 +43,7 @@ jobs:
           poetry run python -m pytest -v -s
 
       - name: Run checks
-        run: | 
+        run: |
           poetry run ruff check
           poetry run mypy agentic_radar
-        
+
